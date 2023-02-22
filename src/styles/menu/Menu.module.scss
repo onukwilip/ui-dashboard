@@ -1,0 +1,115 @@
+@import "../_config";
+
+$menu-list-padding: 1.5rem;
+
+.menu {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    width: auto;
+    max-height: 87.5vh;
+    min-width: 40px;
+    overflow-y: auto;
+    padding: 1.5rem 0;
+    box-shadow: 1px 0px 5px rgba(black, 0.1);
+    background: $pry-color-light;
+    color: $pry-color-dark;
+    @include flex(center, flex-start, 0, column);
+    transition: 0.2s;
+    i {
+        font-size: 18px;
+    }
+    p {
+        padding: 0 $menu-list-padding;
+    }
+    .drop-down {
+        width: 100%;
+        text-transform: capitalize;
+    }
+    .tab {
+        color: rgba($pry-color-dark, 0.6);
+        width: 100%;
+        @include flex(flex-start, flex-start, 0, column);
+        padding-top: 0.5rem;
+        & > p:first-of-type {
+            @include flex(center, flex-start, 10px, row);
+            i,
+            em {
+                height: 100%;
+            }
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            @include flex(flex-start, flex-start, 2rem, column);
+            width: 100%;
+            .each-list-container {
+                width: 100%;
+                em.title {
+                    text-transform: uppercase;
+                    padding: 0 $menu-list-padding;
+                    padding-bottom: 10px;
+                }
+                @include flex(flex-start, flex-start, 0, column);
+                .each-menu {
+                    width: 100%;
+                    @include flex(center, flex-start, 0, row);
+                    height: 3rem;
+                    color: inherit;
+                    &:hover {
+                        &::before {
+                            content: "";
+                            position: relative;
+                            width: 5px;
+                            height: 100%;
+                            background: $pry-color;
+                        }
+                        background: rgba($pry-color, 0.1);
+                    }
+
+                    li {
+                        @include flex(center, flex-start, 10px, row);
+                        cursor: pointer;
+                        overflow-x: hidden;
+                        padding: 0 $menu-list-padding;
+                        width: 100%;
+                        height: 100%;
+                        color: inherit;
+                        i,
+                        em {
+                            height: 100%;
+                        }
+                    }
+                }
+                .each-menu.active {
+                    &::before {
+                        content: "";
+                        position: relative;
+                        width: 5px;
+                        height: 100%;
+                        background: $pry-color;
+                    }
+                    background: rgba($pry-color, 0.1);
+                }
+            }
+        }
+    }
+    em,
+    .em-container {
+        display: none;
+        overflow-x: hidden;
+    }
+    &:hover {
+        padding: 2rem 0;
+        min-width: 280px;
+        em {
+            display: inline;
+        }
+        .em-container {
+            display: block;
+        }
+        &::-webkit-scrollbar {
+            display: block;
+        }
+    }
+}

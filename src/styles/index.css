@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Gumela";
+  src: url("../fonts/Gumela Regular.otf");
+}
+
+* {
+  font-family: "Gumela";
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Gumela";
+  width: 100vw;
+  height: 100vh;
+}
+
+body ::-webkit-scrollbar{
+  width: 5px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}

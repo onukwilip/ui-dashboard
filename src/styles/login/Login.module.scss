@@ -1,0 +1,94 @@
+@import "../_config";
+
+.login {
+    @include fill();
+    @include grid(repeat(2, 1fr), minmax(100%, auto), 0);
+    @include media(max, $_801) {
+        // grid-auto-rows: auto;
+        // grid-template-columns: 1fr;
+        display: block;
+    }
+    .left {
+        background-color: $pry-color-sub-light;
+        @extend .p-8;
+        @include flex(flex-start, flex-start, 8rem, column);
+        @include media(max, $_1201) {
+            padding: 8rem 4rem;
+        }
+        @include media(max, $_901) {
+            padding: 8rem 2rem;
+        }
+        @include media(max, $_801) {
+            padding: 2rem;
+        }
+        .svg-container {
+            @include media(max, $_801) {
+                display: none;
+            }
+            img {
+                width: 500px;
+                height: 430px;
+                @include media(max, $_1201) {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+    .right {
+        @include flex(center, center, 0, row);
+        @extend .p-x-10;
+        @include media(max, $_1201) {
+            padding: 0 1rem;
+        }
+        @include media(max, $_801) {
+            padding: 3rem 2rem;
+        }
+    }
+}
+
+.login-form {
+    width: 100%;
+    .heading {
+        h2 {
+            font-weight: bolder;
+            font-size: 30px;
+            color: $pry-color-dark;
+        }
+        p {
+            color: rgba(black, 0.5);
+            font-weight: bold;
+        }
+    }
+    .form {
+        @include flex(flex-start, flex-start, 0.5rem, column);
+        * {
+            width: 100%;
+        }
+        .password-container {
+            @include flex(center, center, 1rem, row);
+            .password-input {
+                flex: 1;
+                width: 100%;
+            }
+            .toogle {
+                flex: 0;
+                border-radius: 50%;
+                @extend .p-1;
+                @extend .pry-color;
+                cursor: pointer;
+                &:hover {
+                    @extend .pry-color-inverse;
+                }
+                i {
+                    font-size: 20px;
+                    @include flex(center, center, 0, row);
+                }
+            }
+        }
+
+        .forgot-password {
+            color: $pry-color;
+        }
+    }
+}
