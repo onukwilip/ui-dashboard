@@ -150,6 +150,7 @@
     box-shadow: $box-shadow-light;
     max-width: 350px;
     overflow-x: auto;
+    z-index: 1;
     &::-webkit-scrollbar {
         display: none;
     }
@@ -200,6 +201,175 @@
         &:hover {
             border-radius: 5px;
             background: rgba($pry-color-dark, 0.1);
+        }
+    }
+}
+
+.user-details {
+    width: 100%;
+    @include flex(flex-start, flex-start, 2rem, column);
+    & > div {
+        width: 100%;
+    }
+    .back-link a {
+        @include flex(center, flex-start, 10px, row);
+        i,
+        em {
+            height: 100%;
+        }
+    }
+    .heading {
+        @include flex(center, space-between, 0, row);
+        .actions {
+            @include flex(center, center, 10px, row);
+
+            button {
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                font-weight: bold;
+                &:first-of-type {
+                    border: 2px solid red;
+                    color: red;
+                    background: transparent;
+                    &:hover {
+                        color: white;
+                        background: red;
+                    }
+                }
+                &:last-of-type {
+                    border: 2px solid $pry-color;
+                    color: $pry-color;
+                    background: transparent;
+                    &:hover {
+                        color: white;
+                        background: $pry-color;
+                    }
+                }
+            }
+        }
+    }
+    .profile-head {
+        @include flex(flex-start, flex-start, 0, column);
+        background-color: $pry-color-light;
+        border-radius: 5px;
+        box-shadow: $box-shadow-light;
+        & > div {
+            width: 100%;
+        }
+
+        .profile-items {
+            @include grid(auto auto 2fr, auto, 0);
+            padding: 2.5rem;
+
+            & > div {
+                &:nth-of-type(1) {
+                    padding: 0 2rem;
+                    padding-left: 0;
+                }
+                &:nth-of-type(2),
+                &:nth-of-type(3) {
+                    padding: 0 2rem;
+                }
+            }
+
+            .details {
+                @include flex(flex-start, center, 10px, column);
+                em {
+                    font-weight: bold;
+                    &:first-of-type {
+                        font-size: 22px;
+                        line-height: 20px;
+                    }
+                    &:last-of-type {
+                        color: rgba($pry-color-dark, 0.4);
+                    }
+                }
+            }
+
+            .profile {
+                @include flex(center, flex-start, 1.2rem, row);
+                .img-container {
+                    img {
+                        width: 120px;
+                        height: 120px;
+                        object-fit: cover;
+                        object-position: top;
+                        border-radius: 50%;
+                    }
+                }
+            }
+
+            .rating {
+                border-left: 1px solid rgba($pry-color-dark, 0.2);
+                border-right: 1px solid rgba($pry-color-dark, 0.2);
+                // height: 100%;
+                @include flex(center, center, 10px, column);
+                font-size: 16px;
+                font-weight: bold;
+                color: rgba($pry-color-dark, 0.6);
+            }
+        }
+
+        .menu-items {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            padding: 0 2rem;
+            width: 100%;
+            @include flex(center, space-between, 0, row);
+            li {
+                font-size: 17px;
+                font-weight: bold;
+                color: darken(darkgray, 10);
+                padding: 0 1.8rem;
+                text-align: center;
+                padding-bottom: 9px;
+                transition: 1ss;
+                &:hover {
+                    color: $pry-color;
+                    cursor: pointer;
+                    border-bottom: 3px solid $pry-color;
+                }
+            }
+        }
+    }
+    .profile-body {
+        padding: 2rem;
+        @include flex(flex-start, flex-start, 1rem, column);
+        background-color: $pry-color-light;
+        border-radius: 5px;
+        box-shadow: $box-shadow-light;
+        & > div {
+            width: 100%;
+        }
+    }
+    .profile-section {
+        width: 100%;
+        @include flex(flex-start, flex-start, 1rem, column);
+        & > div {
+            width: 100%;
+        }
+        h3 {
+            text-transform: capitalize;
+        }
+        .all-section {
+            @include flex(flex-start, flex-start, 0, row);
+            gap: 2rem 8rem;
+            flex-wrap: wrap;
+            .each-section {
+                @include flex(flex-start, center, 10px, column);
+                em {
+                    font-weight: bold;
+                    &:first-of-type {
+                        text-transform: uppercase;
+                        color: rgba($pry-color-dark, 0.6);
+                    }
+                    &:last-of-type {
+                        color: rgba($pry-color-dark, 0.8);
+                        font-size: 17px;
+                    }
+                }
+            }
         }
     }
 }

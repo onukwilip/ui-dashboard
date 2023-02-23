@@ -1,8 +1,8 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Icon, Input } from "semantic-ui-react";
 import Menu from "../components/Menu";
-import UsersTab from "../components/UsersTab";
+import { UsersTab, UserDetails } from "../components/UsersTab";
 import css from "../styles/dashboard/Dashboard.module.scss";
 
 const Header = () => {
@@ -54,6 +54,8 @@ const Dashboard = () => {
         <div className={css.right}>
           <Routes>
             <Route path="users" element={<UsersTab />} />
+            <Route path="user/:id" element={<UserDetails />} />
+            <Route path="user" element={<Navigate to="/dashboard/users" />} />
             <Route path="*" element={<UsersTab />} />
           </Routes>
         </div>
