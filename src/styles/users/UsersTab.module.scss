@@ -38,6 +38,9 @@
                 }
             }
         }
+        @include media(max, 910px) {
+            grid-template-columns: 1fr 1fr;
+        }
     }
 
     .table-container {
@@ -60,7 +63,32 @@
                     cursor: pointer;
                 }
             }
+            thead,
+            tbody {
+                @include media(max, 910px) {
+                    display: table !important;
+                    width: 100%;
+                    tr {
+                        display: block !important;
+                        width: 100%;
+                        border-bottom: 1px solid rgba(black, 0.1);
+                        padding: 10px 5px;
+                        th,
+                        td {
+                            display: block !important;
+                            padding: 5px !important;
+                            width: 100%;
+                            border: none;
+                            background: transparent;
+                        }
+                    }
+                }
+            }
         }
+    }
+
+    @include media(max, 910px) {
+        @include flex(flex-start, flex-start, 4rem, column);
     }
 }
 
@@ -202,6 +230,10 @@
             border-radius: 5px;
             background: rgba($pry-color-dark, 0.1);
         }
+    }
+    @include media(max, 910px) {
+        left: 0;
+        box-shadow: 0px 0px 10px rgba(black, 0.1);
     }
 }
 

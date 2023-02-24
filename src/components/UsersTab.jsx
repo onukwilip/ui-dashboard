@@ -543,12 +543,6 @@ export const UserDetails = () => {
         </div>
       </section>
     );
-
-  // return (
-  //   <div className={css["user-details"]}>
-  //     <ProfileSection header={"Profile"} profileDetails={testUser.profile} />
-  //   </div>
-  // );
 };
 
 export const UsersTab = () => {
@@ -620,7 +614,7 @@ export const UsersTab = () => {
           ))}
         </div>
         <div className={css["table-container"]}>
-          <Table color="purple" padded>
+          <Table color="purple" padded stackable>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>
