@@ -112,4 +112,14 @@ $menu-list-padding: 1.5rem;
             display: block;
         }
     }
+    @include media(max, 761px) {
+        width: 100%;
+        &::-webkit-scrollbar {
+            display: block;
+        }
+        em,
+        .em-container {
+            display: block;
+        }
+    }
 }

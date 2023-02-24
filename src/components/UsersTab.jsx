@@ -10,7 +10,7 @@ import {
 } from "semantic-ui-react";
 import useAjaxHook from "use-ajax-request";
 import css from "../styles/users/UsersTab.module.scss";
-import { CardClass, SelectClass } from "../utils/utils";
+import { CardClass, MenuClass, SelectClass } from "../utils/utils";
 import axios from "axios";
 import { useInput } from "use-manage-form";
 import { Link, Navigate, useParams } from "react-router-dom";
@@ -360,12 +360,12 @@ export const UserDetails = () => {
   });
 
   const menus = [
-    "General Details",
-    "Documents",
-    "Bank Details",
-    "Loans",
-    "Savings",
-    "App and System",
+    new MenuClass("General Details", "fa-solid fa-circle-info"),
+    new MenuClass("Documents", "fa-solid fa-folder-open"),
+    new MenuClass("Bank Details", "fa-solid fa-building-columns"),
+    new MenuClass("Loans", "fa-solid fa-hand-holding-dollar"),
+    new MenuClass("Savings", "fa-solid fa-piggy-bank"),
+    new MenuClass("App and System", "fa-solid fa-mobile-button"),
   ];
 
   const mapFunction = ([key, eachItem], i) => {
@@ -530,7 +530,8 @@ export const UserDetails = () => {
           <ul className={css["menu-items"]}>
             {menus.map((menu) => (
               <li>
-                <Link>{menu}</Link>
+                <i className={menu.icon} title={menu.name}></i>
+                <Link>{menu.name}</Link>
               </li>
             ))}
           </ul>

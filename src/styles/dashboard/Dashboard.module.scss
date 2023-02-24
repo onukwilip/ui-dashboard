@@ -12,6 +12,16 @@
             width: 100%;
             flex: 0;
             z-index: 1;
+            position: relative;
+            @include media(max, 795px) {
+                &:hover {
+                    position: absolute;
+                    max-width: 40vw;
+                }
+            }
+            @include media(max, 761px) {
+                display: none;
+            }
         }
         .right {
             width: 100%;
@@ -19,9 +29,7 @@
             background: $pry-color-sub-light;
             max-height: 90vh;
             overflow-y: auto;
-            @include media(max, 910px) {
-                max-width: 92vw;
-            }
+
             & > section {
                 width: inherit;
                 @extend .p-4;
@@ -30,6 +38,10 @@
                 }
                 @include media(max, 1010px) {
                     padding: 3rem 1.5rem;
+                }
+                @include media(max, 575px) {
+                    padding: 3rem 10px;
+                    max-width: 100vw;
                 }
             }
         }
@@ -42,9 +54,19 @@
     box-shadow: $box-shadow;
     height: 100px;
     z-index: 2;
+    max-width: 100vw;
     box-shadow: 0 -1px 5px rgba(black, 0.1);
     @include media(max, 910px) {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+    @include media(max, 761px) {
+        @include flex(center, space-between, 0, row);
+        & > div {
+            &:nth-of-type(2),
+            &:nth-of-type(3) {
+                display: none;
+            }
+        }
     }
     .logo-container {
         @extend .p-2;
@@ -75,5 +97,66 @@
                 border-radius: 50%;
             }
         }
+    }
+    .icon-container {
+        display: none;
+        @extend .p-1;
+        border-radius: 50%;
+        background: rgba($pry-color-dark, 0.1);
+        margin: 10px;
+        i {
+            font-size: 20px;
+        }
+        @include media(max, 761px) {
+            display: block;
+        }
+    }
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    @extend .p-2;
+    max-width: 400px;
+    height: 100vh;
+    background: $pry-color-light;
+    box-shadow: $box-shadow-light;
+    & > div {
+        width: 100%;
+    }
+    .search-container {
+        @include flex(center, space-between, 10px, row);
+        .icon-container {
+            @extend .p-1;
+            border-radius: 50%;
+            background: rgba($pry-color-dark, 0.1);
+            i {
+                font-size: 20px;
+            }
+        }
+    }
+    .profile-container {
+        @include flex(center, flex-start, 2rem, row);
+        font-size: 18px;
+        color: $pry-color-dark;
+        & > i {
+            font-size: 22px;
+        }
+        .profile {
+            @include flex(center, center, 0.8rem, row);
+            img {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+                object-position: top;
+                border-radius: 50%;
+            }
+        }
+    }
+    @include media(max, 761px) {
+        @include flex(flex-start, flex-start, 2rem, column);
     }
 }
