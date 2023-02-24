@@ -345,6 +345,7 @@ const UserOptions = ({ onViewDetails, onActivate, onBlacklist, user }) => {
 
 export const UserDetails = () => {
   const params = useParams();
+  const [mappedUser, setMappedUser] = useState(/**@type testUser */ {});
   const {
     sendRequest: getUser,
     data: user,
@@ -380,7 +381,7 @@ export const UserDetails = () => {
   const ProfileSection = ({ header, profileDetails }) => {
     return (
       <div className={css["profile-section"]}>
-        <h3>{header}</h3>
+        {header && <h3>{header}</h3>}
         <div className={css["all-section"]}>
           {Object.entries(profileDetails)?.map(([key, eachItem]) => (
             <div className={css["each-section"]}>
@@ -399,8 +400,45 @@ export const UserDetails = () => {
     );
   };
 
+  const onGetUserSuccess = ({ data: userDetails = testUser }) => {
+    const user = {
+      ["personal information"]: {
+        ["full name"]: `${userDetails?.profile?.firstName} ${userDetails?.profile?.lastName}`,
+        ["phone number"]: userDetails?.phoneNumber,
+        ["email address"]: userDetails?.email,
+        ["bvn"]: userDetails?.profile?.bvn,
+        ["gender"]: userDetails?.profile?.gender,
+        ["marital status"]: `Single`,
+        ["children"]: `None`,
+        ["type of residence"]: `Parent apartment`,
+      },
+      ["education and employment"]: {
+        ["level of education"]: userDetails?.education?.level,
+        ["employment status"]: userDetails?.education?.employmentStatus,
+        ["sector of employment"]: userDetails?.education?.sector,
+        ["duration of employment"]: userDetails?.education?.duration,
+        ["office email"]: userDetails?.email,
+        ["monthly income"]: `${userDetails?.profile?.currency} ${userDetails?.education?.monthlyIncome[0]} - ${userDetails?.profile?.currency} ${userDetails?.education?.monthlyIncome[1]}`,
+        ["loan repayment"]: userDetails?.education?.loanRepayment,
+      },
+      ["Socials"]: {
+        ["twitter"]: userDetails?.socials?.twitter,
+        ["facebook"]: userDetails?.socials?.facebook,
+        ["instagram"]: userDetails?.socials?.instagram,
+      },
+      ["guarantor"]: {
+        ["full name"]: `${userDetails?.guarantor?.firstName} ${userDetails?.guarantor?.lastName}`,
+        ["phone number"]: userDetails?.guarantor?.phoneNumber,
+        ["email address"]: userDetails?.email,
+        ["relationship"]: `Sister`,
+      },
+    };
+
+    setMappedUser(user);
+  };
+
   useEffect(() => {
-    getUser();
+    getUser(onGetUserSuccess);
   }, []);
 
   if (loading)
@@ -448,7 +486,7 @@ export const UserDetails = () => {
     return (
       <section className={css["user-details"]}>
         <div className={css["back-link"]}>
-          <Link>
+          <Link to="/dashboard/users">
             <Icon name="arrow left" />
             <em>Back to Users</em>
           </Link>
@@ -464,11 +502,16 @@ export const UserDetails = () => {
           <div className={css["profile-items"]}>
             <div className={css.profile}>
               <div className={css["img-container"]}>
-                <img src={dummyUser} alt="" />
+                <img
+                  src={
+                    user?.profile?.avatar ? user?.profile?.avatar : dummyUser
+                  }
+                  alt=""
+                />
               </div>
               <div className={css.details}>
-                <em>{"Prince Onukwili"}</em>
-                <em>{"Liuuhusi876"}</em>
+                <em>{`${user?.profile?.firstName} ${user?.profile?.lastName}`}</em>
+                <em>{user?.accountNumber}</em>
               </div>
             </div>
             <div className={css.rating}>
@@ -478,18 +521,25 @@ export const UserDetails = () => {
               </div>
             </div>
             <div className={css.details}>
-              <em>{"$200,000.00"}</em>
-              <em>{"9987778901/Access bank"}</em>
+              <em>
+                {user?.profile?.currency} {user?.accountBalance}
+              </em>
+              <em>{`${user?.profile?.bvn}/Access bank`}</em>
             </div>
           </div>
           <ul className={css["menu-items"]}>
             {menus.map((menu) => (
-              <li>{menu}</li>
+              <li>
+                <Link>{menu}</Link>
+              </li>
             ))}
           </ul>
         </div>
         <div className={css["profile-body"]}>
-          {Object.entries(user)?.map(mapFunction)}
+          {Object.entries(mappedUser)?.map(mapFunction)}
+          <br />
+          <br />
+          <ProfileSection profileDetails={mappedUser?.guarantor} />
         </div>
       </section>
     );
@@ -689,49 +739,3 @@ export const UsersTab = () => {
     </>
   );
 };
-
-/* {
-  "createdAt": "2072-12-27T03:44:22.522Z",
-  "orgName": "labore-dolor-et",
-  "userName": "Wilburn.Rice",
-  "email": "Maverick.Hyatt83@gmail.com",
-  "phoneNumber": "(553) 208-0727 x31321",
-  "lastActiveDate": "2099-02-28T23:17:40.013Z",
-  "profile": {
-    "firstName": "Darian",
-    "lastName": "Rolfson",
-    "phoneNumber": "494-278-0946",
-    "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/725.jpg",
-    "gender": "Male",
-    "bvn": "815809412",
-    "address": "Gusikowski Locks",
-    "currency": "NGN"
-  },
-  "guarantor": {
-    "firstName": "Celine",
-    "lastName": "Monahan",
-    "phoneNumber": "1-482-227-3654 x71086",
-    "gender": "Male",
-    "address": "O'Hara Centers"
-  },
-  "accountBalance": "496.00",
-  "accountNumber": "GWQUSEH1",
-  "socials": {
-    "facebook": "@lendsqr",
-    "instagram": "@lendsqr",
-    "twitter": "@lendsqr"
-  },
-  "education": {
-    "level": "Bsc",
-    "employmentStatus": "Employed",
-    "sector": "FinTech",
-    "duration": "2 Years",
-    "officeEmail": "Edna4@yahoo.com",
-    "monthlyIncome": [
-      "128.57",
-      "118.07"
-    ],
-    "loanRepayment": "122.47"
-  },
-  "id": "1"
-} */
