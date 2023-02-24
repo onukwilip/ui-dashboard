@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Prince C. Onukwili Lendsqr-fe-test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hello there😁💕! My name is Prince C. Onukwili. This was a frontend assessment test given to me by Lendsqr. The tools which were used in building it are:
 
-## Available Scripts
+- React Js
+- SCSS
+- Docker
+- Semantic UI React
 
-In the project directory, you can run:
+## Instalation
 
-### `npm start`
+There are three ways to view this project, which are:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Through the live (URL)[https://prince-c-onukwili-lendsqr-fe-test.netlify.app/] / `https://prince-c-onukwili-lendsqr-fe-test.netlify.app/`
+- Running it locally via Node Js. **NB: To run this via Node Js, you MUST have the Node Js software installed on your system, visit [Node Js](https://nodejs.org/en/) to download, i recommend you install Node version 16.15.0 (It was used to develop this application)**
+- Running it locally via Docker. **NB: To run this via Docker, you MUST have the Docker software installed on your system, visit [Docker](https://www.docker.com/products/docker-desktop/) to download**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Running via Node Js
 
-### `npm test`
+To run using Node Js:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Download and install Node Js 16.15 (Recommended)
+- Clone this git repo `git clone https://github.com/onukwilip/lendsqr-fe-test.git`
+- Run `npm install`
+- Run `npm install -g serve`
+- Run `npm run build`
+- Run `serve -s build` (You should probably run this via windows powershell, bash or your operating system CLI)
+  OR
+- Run `npm install`
+- Run `npm start`
 
-### `npm run build`
+### Running via Docker
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run using Docker:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Download and install Docker desktop (Recommended)
+- Clone this git repo `git clone https://github.com/onukwilip/lendsqr-fe-test.git`
+- Run `docker-compose up` (**NB: Make sure port 3000 is available on your machine otherwise you are likely to get an error**)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you. Please if you found this useful help to star the repo😁.
