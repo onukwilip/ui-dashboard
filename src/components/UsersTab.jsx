@@ -116,7 +116,14 @@ const Pagination = ({
       <div className={css.pagination}>
         <div className={css["total-container"]}>
           <p>
-            Showing <em>{currentData}</em> out of <b>{totalData}</b>
+            Showing{" "}
+            <em>
+              {/* {currentPage * dataPerPage > totalData
+                ? currentData
+                : currentPage * dataPerPage} */}
+              {(currentPage - 1) * dataPerPage + currentData}
+            </em>{" "}
+            out of <b>{totalData}</b>
           </p>
         </div>
         <div className={css["paginate-container"]}>
