@@ -11,7 +11,7 @@ Hello there😁💕! My name is Prince C. Onukwili. This was a frontend assessme
 
 There are three ways to view this project, which are:
 
-- Through the live (URL)[https://prince-c-onukwili-lendsqr-fe-test.netlify.app/] / `https://prince-c-onukwili-lendsqr-fe-test.netlify.app/`
+- Through the live [URL](https://prince-c-onukwili-lendsqr-fe-test.netlify.app/) `https://prince-c-onukwili-lendsqr-fe-test.netlify.app/`
 - Running it locally via Node Js. **NB: To run this via Node Js, you MUST have the Node Js software installed on your system, visit [Node Js](https://nodejs.org/en/) to download, i recommend you install Node version 16.15.0 (It was used to develop this application)**
 - Running it locally via Docker. **NB: To run this via Docker, you MUST have the Docker software installed on your system, visit [Docker](https://www.docker.com/products/docker-desktop/) to download**
 
