@@ -116,14 +116,8 @@ const Pagination = ({
       <div className={css.pagination}>
         <div className={css["total-container"]}>
           <p>
-            Showing{" "}
-            <em>
-              {/* {currentPage * dataPerPage > totalData
-                ? currentData
-                : currentPage * dataPerPage} */}
-              {(currentPage - 1) * dataPerPage + currentData}
-            </em>{" "}
-            out of <b>{totalData}</b>
+            Showing <em>{(currentPage - 1) * dataPerPage + currentData}</em> out
+            of <b>{totalData}</b>
           </p>
         </div>
         <div className={css["paginate-container"]}>
@@ -162,7 +156,14 @@ const Pagination = ({
   );
 };
 
-const Filter = ({ setData, allData, persistData, prevData, toogleFilter }) => {
+const Filter = ({
+  setData,
+  allData,
+  persistData,
+  prevData,
+  toogleFilter,
+  setCurrentPage,
+}) => {
   const {
     value: organization,
     isValid: organizationIsValid,
@@ -247,6 +248,7 @@ const Filter = ({ setData, allData, persistData, prevData, toogleFilter }) => {
     );
     setData(filteredData);
     persistData({ organization, name, email, phone, date, status });
+    setCurrentPage(1);
     toogleFilter(false);
     // console.log("ALL DATA", allData);
     // console.log("FILTERED DATA", filteredData);
@@ -602,6 +604,7 @@ export const UsersTab = () => {
           persistData={setPersistedData}
           prevData={persistedData}
           toogleFilter={toogleFilter}
+          setCurrentPage={setCurrentPage}
         />
       );
   };
