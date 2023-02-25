@@ -6,11 +6,14 @@ import { useNavigate } from "react-router-dom";
 
 // https://www.lendsqr.com/assets/icons/header-logo.svg
 
-const LoginForm = () => {
+export const LoginForm = ({ onSubmit, tooglePasswordType }) => {
   const [passwordType, setPasswordType] = useState("password");
   const navigate = useNavigate();
 
   const tooglePassword = () => {
+    if (tooglePasswordType)
+      return tooglePasswordType(passwordType, setPasswordType);
+
     if (passwordType === "password") {
       setPasswordType("text");
     } else {
@@ -19,6 +22,7 @@ const LoginForm = () => {
   };
 
   const submitHandler = () => {
+    if (onSubmit) return onSubmit();
     navigate("/dashboard", { replace: true });
   };
 
@@ -31,7 +35,11 @@ const LoginForm = () => {
         </div>
         <br />
         <br />
-        <Form className={css.form} onSubmit={submitHandler}>
+        <Form
+          className={css.form}
+          onSubmit={submitHandler}
+          data-testid="loginForm"
+        >
           <Form.Input
             placeholder="Enter email"
             icon="mail"
@@ -51,7 +59,11 @@ const LoginForm = () => {
               />
             </div>
 
-            <div className={css.toogle} onClick={tooglePassword}>
+            <div
+              className={css.toogle}
+              onClick={tooglePassword}
+              data-testid="passwordToogle"
+            >
               <Icon name={passwordType === "password" ? "eye" : "eye slash"} />
             </div>
           </div>
@@ -85,7 +97,7 @@ const Login = () => {
           />
         </div>
         <div className={css["svg-container"]}>
-          <img src={svgImg} alt="" />
+          <img src={svgImg} alt="svg" />
         </div>
       </div>
       <div className={css.right}>

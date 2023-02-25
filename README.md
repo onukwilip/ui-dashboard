@@ -38,3 +38,7 @@ To run using Docker:
 - Run `docker-compose up` (**NB: Make sure port 3000 is available on your machine otherwise you are likely to get an error**)
 
 Thank you. Please if you found this useful help to star the repo😁.
+
+### Testing the application
+
+To test this application you MUST have [Node Js](https://nodejs.org/en/) software on your machine, please follow the above steps to install Node Js. Whwen you are done with the installation then proceed to run `npm run test`

@@ -21,3 +21,11 @@ export class SelectClass {
     this.text = text;
   }
 }
+
+export const tooglePasswordType = (passwordType, setPasswordType) => {
+  if (passwordType === "password") {
+    setPasswordType("text");
+  } else {
+    setPasswordType("password");
+  }
+};

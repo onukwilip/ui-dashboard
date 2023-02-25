@@ -116,7 +116,7 @@ const Header = () => {
 
 const Dashboard = () => {
   return (
-    <section className={css.dashboard}>
+    <section className={css.dashboard} data-testId="dashboard">
       <Header />
       <div className={css.body}>
         <div className={css.left}>
