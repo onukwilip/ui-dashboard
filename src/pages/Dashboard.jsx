@@ -28,8 +28,12 @@ const MobileMenu = ({ toogleMenu }) => {
       animate="animate"
       exit="exit"
       className={css["mobile-menu"]}
+      data-testid="mobileMenu"
     >
-      <div className={css["search-container"]}>
+      <div
+        className={css["search-container"]}
+        data-testid="mobileSearchContainer"
+      >
         <Input
           className={css.search}
           action={{
@@ -43,11 +47,15 @@ const MobileMenu = ({ toogleMenu }) => {
         <div
           className={css["icon-container"]}
           onClick={(e) => toogleMenu((prev) => !prev)}
+          data-testid="hideMenu"
         >
           <i className="fa-solid fa-xmark"></i>
         </div>
       </div>
-      <div className={css["profile-container"]}>
+      <div
+        className={css["profile-container"]}
+        data-testid="mobileProfileContainer"
+      >
         <div className={css.profile}>
           <img
             src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
@@ -59,12 +67,12 @@ const MobileMenu = ({ toogleMenu }) => {
         <a href="#">Docs</a>
         <Icon name="bell outline" />
       </div>
-      <Menu />
+      <Menu data-testid="menu" />
     </motion.div>
   );
 };
 
-const Header = () => {
+export const Header = () => {
   const [showmenu, setShowmenu] = useState(false);
 
   return (
@@ -80,7 +88,7 @@ const Header = () => {
             alt="logo"
           />
         </div>
-        <div className={css["search-container"]}>
+        <div className={css["search-container"]} data-testid="searchContainer">
           <Input
             className={css.search}
             action={{
@@ -91,9 +99,12 @@ const Header = () => {
             placeholder="Search for anything"
           />
         </div>
-        <div className={css["profile-container"]}>
+        <div
+          className={css["profile-container"]}
+          data-testid="profileContainer"
+        >
           <a href="#">Docs</a>
-          <Icon name="bell outline" />
+          <Icon name="bell outline" data-testid="bell" />
           <div className={css.profile}>
             <img
               src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
@@ -106,6 +117,7 @@ const Header = () => {
         <div
           className={css["icon-container"]}
           onClick={(e) => setShowmenu((prev) => !prev)}
+          data-testid="showMenu"
         >
           <i className="fa-solid fa-bars-progress"></i>
         </div>
@@ -116,7 +128,7 @@ const Header = () => {
 
 const Dashboard = () => {
   return (
-    <section className={css.dashboard} data-testId="dashboard">
+    <section className={css.dashboard} data-testid="dashboard">
       <Header />
       <div className={css.body}>
         <div className={css.left}>

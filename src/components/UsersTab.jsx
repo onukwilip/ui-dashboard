@@ -9,6 +9,7 @@ import {
   Table,
 } from "semantic-ui-react";
 import useAjaxHook from "use-ajax-request";
+// const useAjaxHook = (demo) => ({ sendRequest, data, loading, error });
 import css from "../styles/users/UsersTab.module.scss";
 import { CardClass, MenuClass, SelectClass } from "../utils/utils";
 import axios from "axios";
@@ -615,7 +616,7 @@ export const UsersTab = () => {
 
   return (
     <>
-      <section className={css["users"]}>
+      <section className={css["users"]} data-testid="users">
         <div className={css.heading}>
           <em>Users</em>
         </div>

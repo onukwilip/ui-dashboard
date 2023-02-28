@@ -84,7 +84,7 @@ const Menu = () => {
 
   return (
     <>
-      <section className={css.menu}>
+      <section className={css.menu} data-testid="menu">
         <p className={css["drop-down"]}>
           <Icon name="briefcase" /> &nbsp;
           <em>
@@ -99,7 +99,7 @@ const Menu = () => {
           </p>
           <ul>
             {Object.entries(menus)?.map(([key, menu], i) => (
-              <div className={css["each-list-container"]}>
+              <div className={css["each-list-container"]} key={key}>
                 <em key={key} className={css.title}>
                   {key}
                 </em>
